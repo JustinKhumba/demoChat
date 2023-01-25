@@ -22,6 +22,14 @@
             socket.send(message);
             document.getElementById("message").value = "";
         }
+        
+        function sendMessage() {
+    var message = document.getElementById("message").value;
+    socket.send(message);
+    document.getElementById("message").value = "";
+    chat_box.innerHTML += "Me :" + message + "<br>";
+}
+
     </script>
 </head>
 <body>
