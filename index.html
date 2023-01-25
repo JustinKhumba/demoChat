@@ -1,34 +1,28 @@
 <html>
 <head>
     <title>Chat</title>
-    <script>
-        var socket = new WebSocket("ws://127.0.0.1:8000");
-        var chat_box = document.getElementById("chat-box");
+   <script>
+    var socket = new WebSocket("ws://127.0.0.1:8000");
+    var chat_box = document.getElementById("chat-box");
 
-        socket.onopen = function (event) {
-            chat_box.innerHTML += "Connected to chat server<br>";
-        }
+    socket.onopen = function (event) {
+        chat_box.innerHTML += "Connected to chat server<br>";
+    }
 
-        socket.onmessage = function (event) {
-            chat_box.innerHTML += event.data + "<br>";
-        }
+    socket.onmessage = function (event) {
+        chat_box.innerHTML += event.data + "<br>";
+    }
 
-        socket.onclose = function (event) {
-            chat_box.innerHTML += "Disconnected from chat server<br>";
-        }
+    socket.onclose = function (event) {
+        chat_box.innerHTML += "Disconnected from chat server<br>";
+    }
 
-        function sendMessage() {
-            var message = document.getElementById("message").value;
-            socket.send(message);
-            document.getElementById("message").value = "";
-        }
-        
-        function sendMessage() {
-    var message = document.getElementById("message").value;
-    socket.send(message);
-    document.getElementById("message").value = "";
-    chat_box.innerHTML += "Me :" + message + "<br>";
-}
+    function sendMessage() {
+        var message = document.getElementById("message").value;
+        socket.send(message);
+        document.getElementById("message").value = "";
+        chat_box.innerHTML += "Me :" + message + "<br>";
+    }
 
     </script>
 </head>
